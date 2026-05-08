@@ -36,6 +36,11 @@ const transactionHistorySchema = new mongoose.Schema({
     default: Date.now,
   },
 
+  userTradeId: {
+  type: mongoose.Schema.Types.ObjectId,
+  ref: "UserTrade",
+},
+
 });
 
 module.exports = mongoose.model("TransactionHistory", transactionHistorySchema);

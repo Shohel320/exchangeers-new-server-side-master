@@ -22,6 +22,17 @@ const tradeSchema = new mongoose.Schema({
     type: Number,
     default: 3,
   },
+   visibilityType: {
+    type: String,
+    enum: ["ALL", "INCLUDE", "EXCLUDE"],
+    default: "ALL",
+  },
+   selectedUsers: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ],
 });
 
 module.exports = mongoose.model('Trade', tradeSchema);
